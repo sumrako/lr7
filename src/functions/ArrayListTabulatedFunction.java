@@ -9,6 +9,24 @@ public class ArrayListTabulatedFunction implements TabulatedFunction {
     private FunctionPoint[] points;
     private int length = 0;
 
+    public static class ArrayTabulatedFunctionFactory implements TabulatedFunctionFactory{
+
+        @Override
+        public TabulatedFunction createTabulatedFunction(double leftX, double rightX, int pointsCount) {
+            return new ArrayListTabulatedFunction(leftX, rightX, pointsCount);
+        }
+
+        @Override
+        public TabulatedFunction createTabulatedFunction(double leftX, double rightX, double[] values) {
+            return new ArrayListTabulatedFunction(leftX, rightX, values);
+        }
+
+        @Override
+        public TabulatedFunction createTabulatedFunction(FunctionPoint[] masPoint) {
+            return new ArrayListTabulatedFunction(masPoint);
+        }
+    }
+
     @Override
     public Iterator<FunctionPoint> iterator() {
         return new Iterator<>() {

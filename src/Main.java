@@ -61,10 +61,23 @@ public class Main {
 
     public static void main(String[] arg) {
         try {
-            TabulatedFunction f = new ArrayListTabulatedFunction(0, 1, new double[]{1, 2, 3});/* получение или создание объекта */;
-            for (FunctionPoint p : f) {
-                System.out.println(p);
-            }
+            //TabulatedFunction f = new ArrayListTabulatedFunction(0, 1, new double[]{1, 2, 3});/* получение или создание объекта */;
+            //for (FunctionPoint p : f) {
+            //    System.out.println(p);
+            //}
+            /*Function f = new Cos();
+            TabulatedFunction tf;
+            tf = TabulatedFunctions.tabulate(f, 0, Math.PI, 11);
+            System.out.println(tf.getClass());
+            TabulatedFunctions.setFactory(new
+                    LinkedListTabulatedFunction.LinkedListTabulatedFunctionFactory());
+            tf = TabulatedFunctions.tabulate(f, 0, Math.PI, 11);
+            System.out.println(tf.getClass());
+            TabulatedFunctions.setFactory(new
+                    ArrayListTabulatedFunction.ArrayTabulatedFunctionFactory());
+            tf = TabulatedFunctions.tabulate(f, 0, Math.PI, 11);
+            System.out.println(tf.getClass());*/
+
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
