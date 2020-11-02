@@ -65,6 +65,7 @@ public class Main {
             //for (FunctionPoint p : f) {
             //    System.out.println(p);
             //}
+
             /*Function f = new Cos();
             TabulatedFunction tf;
             tf = TabulatedFunctions.tabulate(f, 0, Math.PI, 11);
@@ -78,6 +79,30 @@ public class Main {
             tf = TabulatedFunctions.tabulate(f, 0, Math.PI, 11);
             System.out.println(tf.getClass());*/
 
+            TabulatedFunction f;
+
+            f = TabulatedFunctions.createTabulatedFunction(0, 10, 3, ArrayListTabulatedFunction.class);
+            System.out.println(f.getClass());
+            System.out.println(f);
+
+            f = TabulatedFunctions.createTabulatedFunction( 0, 10, new double[] {0, 10}, ArrayListTabulatedFunction.class);
+            System.out.println(f.getClass());
+            System.out.println(f);
+
+            f = TabulatedFunctions.createTabulatedFunction(
+                    new FunctionPoint[] {
+                            new FunctionPoint(0, 0),
+                            new FunctionPoint(10, 10),
+                    },
+                    LinkedListTabulatedFunction.class
+            );
+            System.out.println(f.getClass());
+            System.out.println(f);
+
+            f = TabulatedFunctions.tabulate(
+                    new Sin(), 0, Math.PI, 11, LinkedListTabulatedFunction.class);
+            System.out.println(f.getClass());
+            System.out.println(f);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

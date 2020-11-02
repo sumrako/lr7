@@ -2,8 +2,11 @@ package functions;
 
 public interface Function {
     double getLeftDomainBorder();
+
     double getRightDomainBorder();
+
     double getFunctionValue(double x);
+
     default void printValues(double begin, double end, double step) throws IllegalArgumentException{
         if (begin < getLeftDomainBorder() || end > getRightDomainBorder()) throw new IllegalArgumentException("Неверно заданы границы распечатки");
         System.out.println("№p  |    X    |    Y    |");

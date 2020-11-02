@@ -1,7 +1,5 @@
 package functions;
 
-import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -9,20 +7,23 @@ public class ArrayListTabulatedFunction implements TabulatedFunction {
     private FunctionPoint[] points;
     private int length = 0;
 
-    public static class ArrayTabulatedFunctionFactory implements TabulatedFunctionFactory{
+    public static class ArrayTabulatedFunctionFactory implements TabulatedFunctionFactory {
 
         @Override
-        public TabulatedFunction createTabulatedFunction(double leftX, double rightX, int pointsCount) {
+        public TabulatedFunction createTabulatedFunction(double leftX, double rightX, int pointsCount)
+                throws IllegalArgumentException {
             return new ArrayListTabulatedFunction(leftX, rightX, pointsCount);
         }
 
         @Override
-        public TabulatedFunction createTabulatedFunction(double leftX, double rightX, double[] values) {
+        public TabulatedFunction createTabulatedFunction(double leftX, double rightX, double[] values)
+                throws IllegalArgumentException {
             return new ArrayListTabulatedFunction(leftX, rightX, values);
         }
 
         @Override
-        public TabulatedFunction createTabulatedFunction(FunctionPoint[] masPoint) {
+        public TabulatedFunction createTabulatedFunction(FunctionPoint[] masPoint)
+                throws IllegalArgumentException {
             return new ArrayListTabulatedFunction(masPoint);
         }
     }
