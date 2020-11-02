@@ -1,8 +1,32 @@
 package functions;
 
 import java.io.*;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class LinkedListTabulatedFunction implements TabulatedFunction{
+public class LinkedListTabulatedFunction implements TabulatedFunction {
+    private int length = 0;
+    private FunctionNode head = new FunctionNode();
+
+    @Override
+    public Iterator<FunctionPoint> iterator() {
+        return new Iterator<>() {
+            private FunctionNode curNode = head;
+
+            @Override
+            public boolean hasNext() {
+                return curNode.next != head.next || curNode == head;
+            }
+
+            @Override
+            public FunctionPoint next() throws NoSuchElementException {
+                if (!hasNext()) throw new NoSuchElementException();
+                curNode = curNode.next;
+                return curNode.point;
+            }
+        };
+    }
+
     private class FunctionNode implements Serializable {
         private FunctionPoint point;
         private FunctionNode next;
@@ -16,9 +40,6 @@ public class LinkedListTabulatedFunction implements TabulatedFunction{
             this.prev = prev;
         }
     }
-
-    private int length = 0;
-    private FunctionNode head = new FunctionNode();
 
     {
         head.point = null;

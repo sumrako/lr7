@@ -61,9 +61,11 @@ public class Main {
 
     public static void main(String[] arg) {
         try {
-            //Main.nonThreads();
-            //Main.simpleThreads();
-            Main.complicatedThreads();
+            TabulatedFunction f = new ArrayListTabulatedFunction(0, 1, new double[]{1, 2, 3});/* получение или создание объекта */;
+            for (FunctionPoint p : f) {
+                System.out.println(p);
+            }
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
